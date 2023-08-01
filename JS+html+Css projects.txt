@@ -1,0 +1,424 @@
+ JavaScript projects with code using HTML, CSS, and JavaScript:
+
+To-Do List:
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Add a task...">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+css
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  margin-right: 5px;
+}
+
+button {
+  padding: 8px 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
+javascript
+
+// script.js
+function addTask() {
+  const taskInput = document.getElementById('taskInput');
+  const taskList = document.getElementById('taskList');
+  const taskText = taskInput.value.trim();
+
+  if (taskText === '') return;
+
+  const listItem = document.createElement('li');
+  listItem.textContent = taskText;
+  taskList.appendChild(listItem);
+
+  taskInput.value = '';
+}
+2.Random Quote Generator:
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Random Quote Generator</h1>
+    <p id="quote"></p>
+    <button onclick="getQuote()">Get Quote</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 15px;
+  margin-top: 10px;
+}
+javascript
+
+// script.js
+const quotes = [
+  "The only way to do great work is to love what you do. - Steve Jobs",
+  "The best preparation for tomorrow is doing your best today. - H. Jackson Brown, Jr.",
+  "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
+  "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson",
+  "Believe you can and you're halfway there. - Theodore Roosevelt",
+  "It does not matter how slowly you go as long as you do not stop. - Confucius",
+  "You miss 100% of the shots you don't take. - Wayne Gretzky",
+  "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt"
+];
+
+function getQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  document.getElementById('quote').textContent = quotes[randomIndex];
+}
+
+3.Simple Calculator:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Simple Calculator</h1>
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button class="operator" onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button class="operator" onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button class="operator" onclick="appendToDisplay('*')">*</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="calculate()">=</button>
+      <button class="operator" onclick="appendToDisplay('/')">/</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+css
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: right;
+  border: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.operator {
+  background-color: #ffcc99;
+}
+
+javascript
+
+// script.js
+function appendToDisplay(value) {
+  document.getElementById('display').value += value;
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+
+function calculate() {
+  try {
+    const result = eval(document.getElementById('display').value);
+    document.getElementById('display').value = result;
+  } catch (err) {
+    document.getElementById('display').value = 'Error';
+  }
+}
+
+
+4.Resturant project 
+
+
+index.html
+
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <h1>Restaurant Name</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="container">
+      <h2>Welcome to Our Restaurant</h2>
+      <p>Delicious Food &amp; Great Ambience</p>
+    </div>
+  </header>
+
+  <section id="menu">
+    <div class="container">
+      <h2>Our Menu</h2>
+      <div class="menu-item">
+        <img src="menu-item1.jpg" alt="Menu Item 1">
+        <h3>Menu Item 1</h3>
+        <p>Description of menu item 1.</p>
+      </div>
+      <div class="menu-item">
+        <img src="menu-item2.jpg" alt="Menu Item 2">
+        <h3>Menu Item 2</h3>
+        <p>Description of menu item 2.</p>
+      </div>
+      <!-- Add more menu items here -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Restaurant Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+styles.css
+
+css
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+header {
+  background-image: url('header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 200px 0;
+}
+
+header h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.menu-item {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu-item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.menu-item h3 {
+  margin: 10px 0;
+}
+
+section {
+  padding: 40px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form input,
+form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+script.js
+
+javascript
+
+// script.js
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // You can add code here to handle form submission or display a success message.
+  alert('Message sent successfully!');
+  contactForm.reset();
+});
